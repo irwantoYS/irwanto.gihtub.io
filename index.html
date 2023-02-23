@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <img class="logo" src="img/Logo RevoU.png" alt="logo" />
+      <nav>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="#Message">Message Us</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <hr size="10" />
+
+    <section class="title">
+      <div class="title-text">
+        <h1 class="welcomeMsg">
+          Hi <span id="nama"></span>, Welcome To My Website
+        </h1>
+
+        <script>
+          var name = prompt("enter your name");
+          document.getElementById("nama").innerText = name;
+        </script>
+
+        <p>ini merupakan hasil latihan Website</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <img class="content-img" src="img/2244.jpg" alt="2244" />
+    </section>
+
+    <hr size="10" />
+
+    <section>
+      <h1 class="HQmsg">Our Headquarter</h1>
+      <div class="imgHQ">
+        <div class="GroupLokasi">
+          <img class="locationimg" src="img/Jakarta.jpg" alt="Jakarta" />
+          <p class="namalokasi">Jakarta</p>
+        </div>
+        <div class="GroupLokasi">
+          <img class="locationimg" src="img/bandung.jpeg" alt="Bandung" />
+          <p class="namalokasi">Bandung</p>
+        </div>
+        <div class="GroupLokasi">
+          <img class="locationimg" src="img/Surabaya.jpg" alt="Surabaya" />
+          <p class="namalokasi">Surabaya</p>
+        </div>
+      </div>
+    </section>
+    <hr size="10" />
+    <section id="Message">
+      <h1 class="Message">Message Us</h1>
+
+      <section class="formMessage">
+        <form
+          class="form-input"
+          name="form-pesan"
+          onsubmit="return FormValidation()"
+        >
+          <div class="GroupInput">
+            <p>Nama :</p>
+            <div class="textbox">
+              <input type="text" name="input-nama" placeholder="Nama" />
+            </div>
+          </div>
+
+          <div class="GroupInput">
+            <p>Tanggal Lahir :</p>
+            <div class="textbox">
+              <input
+                type="date"
+                name="input-tanggal"
+                placeholder="Tanggal Lahir"
+              />
+            </div>
+          </div>
+
+          <div class="GroupInput">
+            <p>Jenis Kelamin :</p>
+            <div class="textbox-radio">
+              <div>
+                <input
+                  type="radio"
+                  name="input-jenisKelamin"
+                  id=""
+                  value="Laki-Laki"
+                />
+                <label class="label-opsiRadio" for="">Laki-Laki</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="input-jenisKelamin"
+                  id=""
+                  value="Perempuan"
+                />
+                <label class="label-opsiRadio" for="">Perempuan</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="GroupInput">
+            <p>Pesan :</p>
+            <div class="textbox">
+              <textarea
+                name="input-pesan"
+                id=""
+                cols="30"
+                rows="3"
+                placeholder="Pesan"
+              ></textarea>
+            </div>
+          </div>
+          <input type="submit" id="submit" value="Submit" />
+        </form>
+
+        <script>
+          function FormValidation() {
+            var nama = document.forms["form-pesan"]["input-nama"].value;
+            var tanggal = document.forms["form-pesan"]["input-tanggal"].value;
+            var jenisKelamin =
+              document.forms["form-pesan"]["input-jenisKelamin"].value;
+            var pesan = document.forms["form-pesan"]["input-pesan"].value;
+
+            if (
+              nama == "" ||
+              tanggal == "" ||
+              jenisKelamin == "" ||
+              pesan == ""
+            ) {
+              alert("Data harus diisi dengan lengkap!");
+              return false;
+            }
+            document.getElementById("sender-full-name").innerText = nama;
+            document.getElementById("sender-birth-date").innerText = tanggal;
+            document.getElementById("sender-gender").innerText = jenisKelamin;
+            document.getElementById("sender-sender-message").innerText = pesan;
+            return false;
+          }
+        </script>
+
+        <div class="form-output">
+          <div class="form-output-group">
+            <p class="form-output-label">
+              Nama : <span id="sender-full-name"></span>
+            </p>
+            <p class="form-output-label">
+              Tanggal lahir : <span id="sender-birth-date"></span>
+            </p>
+            <p class="form-output-label">
+              Jenis Kelamin : <span id="sender-gender"></span>
+            </p>
+            <p class="form-output-label">
+              Pesan : <span id="sender-sender-message"></span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+    <hr />
+
+    <footer>Created by Irwanto Yezekiel</footer>
+  </body>
+</html>
